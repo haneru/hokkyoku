@@ -1,3 +1,22 @@
 #!/usr/bin/env ruby
 
 require "hokkyoku"
+require 'thor'
+
+module Hokkyoku
+  class CLI < Thor
+    default_task :serch
+
+    desc 'serch', "serch Japanese company info"
+    def serch
+      Hokkyku
+    end
+
+    desc "version", "version"
+    def version
+      p Hokkyoku::VERSION
+    end
+  end
+end
+
+Hokkyoku::CLI.start(ARGV)
