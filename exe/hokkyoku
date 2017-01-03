@@ -9,7 +9,7 @@ module Hokkyoku
 
     desc 'serch', "serch Japanese company info"
     def serch
-      Hokkyku
+      Hokkyoku
     end
 
     desc "version", "version"
