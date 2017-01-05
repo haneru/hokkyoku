@@ -45,7 +45,7 @@ module Hokkyoku
         end
 
         def latest_stock_price
-            "現在値 " + finance_page.css('.stock_summary-number').text
+            "現在値 " + yahoo_finance.css('.stoksPrice').text.strip
         end
 
         private
@@ -58,6 +58,11 @@ module Hokkyoku
         def finance_page
             url = "http://quote.nomura.co.jp/nomura/cgi-bin/parser.pl?TEMPLATE=nomura_tp_kabu_01&QCODE=#{code}"
             page(url)
+        end
+
+        def yahoo_finance
+          url = "http://stocks.finance.yahoo.co.jp/stocks/detail/?code=#{code}"
+          page(url)
         end
 
         def page(url)
